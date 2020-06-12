@@ -22,8 +22,8 @@ def send():
         dividendYieldPercent = round(dividendValue * 100, 2)
 
         totalStockNumber = round(float(dividendGoal) / float(dividendValue) * float(closeMarketValue))
-
-        return render_template('app.html', totalStocks=totalStockNumber, goal=dividendGoal)
+        initialInvestment = round(float(dividendGoal) / float(dividendValue) * float(closeMarketValue))
+        return render_template('app.html', initialInvestment=initialInvestment, totalStocks=totalStockNumber, goal=dividendGoal)
 
 
 if __name__ == ' __main__':
