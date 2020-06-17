@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-import yfinance as yf
+""" import yfinance as yf """
+from modules.stock import Stock
 
 app = Flask(__name__)
 
@@ -13,17 +14,12 @@ def send():
     if request.method == 'POST':
         dividendGoal = request.form['dividendGoal']
         stockSymbol = request.form['stockSymbol']
-        
-        stock = yf.Ticker(stockSymbol)
-        info = stock.info
-        closeMarketValue = info['regularMarketPreviousClose']
-        dividendValue = info['dividendRate']
-        dividendYield = info['dividendYield']
-        dividendYieldPercent = round(dividendValue * 100, 2)
+        if dividendGoal != '' and stockSymbol != '':
+            stock_one = Stock(dividendGoal, stockSymbol)
 
-        totalStockNumber = round(float(dividendGoal) / float(dividendValue))
-        initialInvestment = round(float(dividendGoal) / float(dividendValue) * float(closeMarketValue), 2)
-        return render_template('app.html', initialInvestment=initialInvestment, totalStocks=totalStockNumber, goal=dividendGoal)
+            return render_template('app.html', initialInvestment= stock_one.get_initial_investment(), totalStocks=stock_one.get_total_stocks_number(), goal=stock_one.get_dividend_goal())
+        else:
+            return render_template('app.html')
 
 
 if __name__ == ' __main__':

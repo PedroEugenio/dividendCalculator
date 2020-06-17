@@ -9,19 +9,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
     />
-
-    <style>
-      .alert {
-        background: green;
-        padding: 1rem;
-        border-radius: 5px;
-        color: white;
-        margin: 1rem;
-      }
-    </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="text-align: center;">
       <h3>Dividend Calculator</h3>
     </div>
 
@@ -43,15 +33,6 @@
           class="u-full-width"
           name="stockSymbol"
         />
-<!--
-        <label for="Operation">Operation</label>
-        <select class="u-full-width" name="operation">
-          <option value="add">Add</option>
-          <option value="subtract">Subtract</option>
-          <option value="multiply">Multiply</option>
-          <option value="divide">Divide</option>
-        </select>
--->
         <input type="submit" value="Calculate" id="calc_btn" />
         <br />
         <div>
@@ -63,7 +44,7 @@
             </tr>
             <tr>
               <td>{{ initialInvestment }}€ </td>
-              <td>{{ totalStocks }}un.</td>
+              <td>{{ totalStocks }} un.</td>
               <td>{{ goal }}€</td>
             </tr>
           </table>
