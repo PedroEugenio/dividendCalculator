@@ -1,55 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Calculator</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-    />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Dividend Calculator</title>
   </head>
   <body>
-    <div class="container" style="text-align: center;">
-      <h3>Dividend Calculator</h3>
-    </div>
+    <div class="container center shadow mb-5 bg-white rounded mt-5">
+      <div class="container" style="text-align: center;">
+        <h1 class="display-1 p-3 border-bottom">Dividend Calculator</h2>
+      </div>
 
-    <!-- Form -->
-    <div class="container">
       <form action="/send" method="POST">
-        <label for="Dividend Goal">Anual Dividend Income Goal</label>
-        <input
-          type="number"
-          placeholder="Amount"
-          class="u-full-width"
-          name="dividendGoal"
-        />
-
-        <label for="Stock Symbol">Stock Symbol</label>
-        <input
-          type="text"
-          placeholder="Stock Symbol"
-          class="u-full-width"
-          name="stockSymbol"
-        />
-        <input type="submit" value="Calculate" id="calc_btn" />
-        <br />
-        <div>
-          <table>
-            <tr>
-              <td>Initial Investment</td>
-              <td>Number of Stocks</td>
-              <td>Anual Dividends</td>
-            </tr>
-            <tr>
-              <td>{{ initialInvestment }}€ </td>
-              <td>{{ totalStocks }} un.</td>
-              <td>{{ goal }}€</td>
-            </tr>
+        <div class="form-group mt-3">
+          <label for="Dividend Goal" class="h3">Anual Dividend Income Goal</label>
+          <input type="number" class="form-control u-full-width" name="dividendGoal" id="exampleInputEmail1" aria-describedby="dividendGoal" placeholder="Amount">
+        </div>
+        <div class="form-group">
+          <label for="Stock Symbol" class="h3">Stock Symbol</label>
+          <input type="text" class="form-control" name="stockSymbol" id="stockSymbol" placeholder="Stock Symbol">
+        </div>
+        <button type="submit" value="Calculate" class="btn btn-outline-dark btn-lg m-2">Calculate</button>
+        <div class="container p-4">
+          <table class="table table-hover mb-4 mt-2">
+            <thead>
+              <tr>
+                <th scope="col" class="h4">Initial Investment</th>
+                <th scope="col" class="h4">Number of Stocks</th>
+                <th scope="col" class="h4">Anual Dividends</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ initialInvestment }}€ </td>
+                <td>{{ totalStocks }} un.</td>
+                <td>{{ goal }}€</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </form>
     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
